@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from '../material/material.module';
-import { MenuComponent } from './components/menu/menu.component';
-import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './pages/home/home.component';
 import { UiRoutingModule } from './ui-routing.module';
 import { CarouselBrandsComponent } from './components/carousel-brands/carousel-brands.component';
@@ -13,13 +11,13 @@ import { MainComponent } from './pages/main/main.component';
 import { CookiesComponent } from './pages/cookies/cookies.component';
 import { PrivacidadComponent } from './pages/privacidad/privacidad.component';
 import { PagosComponent } from './pages/pagos/pagos.component';
-
+import { SharedModule } from '../shared/shared.module';
+import { MenuComponent } from './components/menu/menu.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 @NgModule({
   declarations: [
-    MenuComponent,
-    FooterComponent,
     HomeComponent,
     CarouselBrandsComponent,
     SobreNosotrosComponent,
@@ -28,15 +26,11 @@ import { PagosComponent } from './pages/pagos/pagos.component';
     MainComponent,
     CookiesComponent,
     PrivacidadComponent,
-    PagosComponent
-  ],
-  imports: [
-    CommonModule,
-    MaterialModule,
-    UiRoutingModule
-  ], exports: [
+    PagosComponent,
     MenuComponent,
-    FooterComponent
-  ]
+    FooterComponent,
+  ],
+  imports: [CommonModule, MaterialModule, UiRoutingModule, SharedModule],
+  exports: [MenuComponent, FooterComponent],
 })
-export class UiModuleModule { }
+export class UiModuleModule {}

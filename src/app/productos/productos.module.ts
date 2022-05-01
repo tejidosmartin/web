@@ -5,6 +5,7 @@ import { ProductosRoutingModule } from './productos-routing.module';
 import { BuscadorComponent } from './components/buscador/buscador.component';
 import { CardProductoComponent } from './components/card-producto/card-producto.component';
 import { UiModuleModule } from '../ui/ui-module.module';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -12,13 +13,13 @@ import { UiModuleModule } from '../ui/ui-module.module';
   declarations: [
     ListComponent,
     BuscadorComponent,
-    CardProductoComponent,
-    
+    CardProductoComponent,   
   ],
   imports: [
     CommonModule,
     ProductosRoutingModule,
-    UiModuleModule
+    UiModuleModule,
+    SharedModule
   ]
 })
 export class ProductosModule { }

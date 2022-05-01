@@ -14,9 +14,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MaterialModule } from './material/material.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -26,12 +24,9 @@ import { MaterialModule } from './material/material.module';
     HttpClientModule,
     MatDialogModule,
     MaterialModule,
-    UiModuleModule
-  ],
-  exports: [
-
+    UiModuleModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
