@@ -1,11 +1,11 @@
-<div class="site-mobile-menu site-navbar-target">
+<!-- <div class="site-mobile-menu site-navbar-target">
   <div class="site-mobile-menu-header">
     <div class="site-mobile-menu-close mt-3">
       <span class="icon-close2 js-menu-toggle"></span>
     </div>
   </div>
   <div class="site-mobile-menu-body"></div>
-</div> <!-- .site-mobile-menu -->
+</div> 
 
 
 <div class="site-navbar-wrap">
@@ -32,7 +32,7 @@
     <div class="container">
       <div class="row align-items-center">
         <div class="col-2">
-          <a class="navbar-brand" href="#">
+          <a class="navbar-brand" routerLink="/">
             <img class="rounded" src="assets/logo/logo.png" alt="logo empresa" width="30" height="24">
           </a>
         </div>
@@ -62,7 +62,7 @@
                   </ul>
                 </li>
                 <li><a routerLink="/productos" class="nav-link">Catálogo</a></li>
-                <li><a href="#events-section" class="nav-link">Vestidos</a></li>
+                <li><a routerLink="/productos?" class="nav-link">Vestidos</a></li>
                 <li><a href="#gallery-section" class="nav-link">Accesorios</a></li>
               </ul>
             </div>
@@ -73,4 +73,43 @@
   </div>
 </div>  
 
-<div class="hero" style="background-image: url('assets/img.jpg');"></div>
+<div class="hero" style="background-image: url('assets/img.jpg');"></div> -->
+
+<div class="wrapper">
+  <nav class="nav">
+    <span id="brand">
+      <a routerLink="/">
+        <img class="rounded" src="assets/logo/logo.png" alt="logo empresa" width="30" height="24"> Tejidos Martín
+      </a>
+    </span>
+
+    <ul id="menu">
+      <li><a routerLink="/">Home</a></li>
+      <li><a routerLink="/eventos">Proximos Eventos</a></li>
+      <li><a routerLink="/productos">Catálogo</a></li>
+      <li><a routerLink="/productos">Vestidos</a></li>
+      <li><a routerLink="/productos">Accesorios</a></li>
+    </ul>
+
+    <div id="toggle">
+      <div class="span">menu</div>
+    </div>
+
+  </nav>
+
+  <div id="resize">
+    <div class="close-btn">close</div>
+
+    <ul id="menu">
+      <li><a routerLink="/">Home</a></li>
+      <li><a routerLink="/eventos">Proximos Eventos</a></li>
+      <li><a routerLink="/productos">Catálogo</a></li>
+      <li><a routerLink="/productos">Vestidos</a></li>
+      <li><a routerLink="/productos">Accesorios</a></li>
+    </ul>
+  </div>
+
+  <div class="hero" style="background-image: url('assets/img.jpg');"></div>
+
+</div>
+

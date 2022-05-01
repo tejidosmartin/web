@@ -1,56 +1,172 @@
-/* adds some margin below the link sets  */
-.navbar .dropdown-menu div[class*="col"] {
-  margin-bottom: 1rem;
+.nav {
+  width: 100%;
+  height: 80px;
+  position: fixed;
+  z-index: 2;
 }
 
-.navbar .dropdown-menu {
-  border: none;
-  background-color: #4d4d4d !important;
+.nav.scrolled {
+  background-color: #161616 !important;
+  transition: background-color 500ms linear;
 }
 
-/* breakpoint and up - mega dropdown styles */
-@media screen and (min-width: 992px) {
-  /* remove the padding from the navbar so the dropdown hover state is not broken */
-  .navbar {
-    padding-top: 0px;
-    padding-bottom: 0px;
-  }
+.nav #brand {
+  float: left;
+  display: block;
+  margin-left: 40px;
+  line-height: 80px;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 18px;
+}
 
-  /* remove the padding from the nav-item and add some margin to give some breathing room on hovers */
-  .navbar .nav-item {
-    padding: 0.5rem 0.5rem;
-    margin: 0 0.25rem;
-  }
+.nav #brand a {
+  color: #fff;
+  font-family: Poppins !important;
+  transition: all 500ms ease-out;
+}
 
-  /* makes the dropdown full width  */
-  .navbar .dropdown {
-    position: static;
-  }
+.nav #brand a:hover {
+  text-decoration: none;
+}
 
-  .navbar .dropdown-menu {
-    width: 100%;
-    left: 0;
-    right: 0;
-    /*  height of nav-item  */
-    top: 45px;
+.nav #menu {
+  float: left;
+  right: 40px;
+  position: fixed;
+}
 
-    display: block;
-    visibility: hidden;
-    opacity: 0;
-    transition: visibility 0s, opacity 0.3s linear;
-  }
+.nav #menu li {
+  padding-left: 40px;
+  display: inline-block;
+  font-weight: lighter !important;
+  text-transform: uppercase;
+  font-size: 14px;
+  line-height: 80px;
+  position: relative;
+  transition: all 500ms ease-out;
+}
 
-  /* shows the dropdown menu on hover */
-  .navbar .dropdown:hover .dropdown-menu,
-  .navbar .dropdown .dropdown-menu:hover {
-    display: block;
+.nav #menu li a {
+  font-family: Poppins !important;
+  color: rgb(156, 156, 156);
+  transition: all 500ms ease-out;
+}
+
+.nav #menu li a:hover {
+  text-decoration: none;
+  color: #fff;
+  transition: all 500ms ease-out;
+}
+
+#toggle {
+  cursor: pointer;
+  position: absolute;
+  right: 40px;
+  top: 20px;
+  font-weight: 300;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  z-index: 2;
+  width: 30px;
+  height: 30px;
+  float: right;
+  transition: all 0.3s ease-out;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.close-btn {
+  cursor: pointer;
+  position: absolute;
+  right: 30px;
+  font-weight: 300;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  z-index: 2;
+  top: -2px;
+  line-height: 80px;
+}
+
+#resize {
+  z-index: 2;
+  top: 0px;
+  position: fixed;
+  background: #0f0f0f;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 1s ease-out;
+}
+
+#resize #menu {
+  height: 90px;
+  position: absolute;
+  left: 45%;
+  transform: translateX(-40%);
+  text-align: center;
+  display: table-cell;
+  vertical-align: center;
+}
+
+#resize #menu li {
+  display: block;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 50px;
+  text-transform: uppercase;
+  min-height: 50px;
+  font-weight: bold;
+  transition: all 0.3s ease-out;
+}
+
+#resize li:nth-child(1) {
+  margin-top: 140px;
+}
+
+#resize #menu li a {
+  color: #fff;
+}
+
+#resize #menu li a:hover {
+  text-decoration: none;
+}
+
+#resize.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+@media (max-width: 900px) {
+  #toggle {
     visibility: visible;
     opacity: 1;
-    transition: visibility 0s, opacity 0.3s linear;
+    margin-top: 6px;
+    margin-right: 4px;
   }
 
-  .navbar .dropdown-menu {
-    border: 1px solid rgba(0, 0, 0, 0.15);
-    background-color: #fff;
+  nav #brand {
+    margin-left: 10px;
+  }
+
+  #resize ul li a {
+    font-size: 15px;
+    font-family: "Poppins" !important;
+    font-weight: lighter !important;
+    color: rgb(156, 156, 156) !important;
+    transition: all 500ms ease-out;
+  }
+
+  nav #menu {
+    display: none;
+  }
+}
+
+@media (min-width: 900px) {
+  #resize {
+    visibility: hidden !important;
   }
 }
