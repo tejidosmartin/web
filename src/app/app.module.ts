@@ -13,8 +13,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MaterialModule } from './material/material.module';
 
+import { MenuComponent } from './components/menu/menu.component';
+import { FooterComponent } from './components/footer/footer.component';
+
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, MenuComponent, FooterComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

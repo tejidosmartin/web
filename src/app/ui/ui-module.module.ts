@@ -12,8 +12,6 @@ import { CookiesComponent } from './pages/cookies/cookies.component';
 import { PrivacidadComponent } from './pages/privacidad/privacidad.component';
 import { PagosComponent } from './pages/pagos/pagos.component';
 import { SharedModule } from '../shared/shared.module';
-import { MenuComponent } from './components/menu/menu.component';
-import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -26,10 +24,7 @@ import { FooterComponent } from './components/footer/footer.component';
     CookiesComponent,
     PrivacidadComponent,
     PagosComponent,
-    MenuComponent,
-    FooterComponent,
   ],
   imports: [CommonModule, MaterialModule, UiRoutingModule, SharedModule],
-  exports: [MenuComponent, FooterComponent],
 })
 export class UiModuleModule {}
