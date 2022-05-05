@@ -15,6 +15,7 @@ import { MaterialModule } from './material/material.module';
 
 import { MenuComponent } from './components/menu/menu.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [AppComponent, MenuComponent, FooterComponent],
@@ -28,6 +29,7 @@ import { FooterComponent } from './components/footer/footer.component';
     MatDialogModule,
     MaterialModule,
     UiModuleModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent],
