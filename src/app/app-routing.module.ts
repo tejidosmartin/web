@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ValidarTokenGuard } from './guards/validar-token.guard';
 import { NotFoundComponent } from './shared/not-found/not-found.component';
 
 const routes: Routes = [
@@ -21,11 +22,13 @@ const routes: Routes = [
     path: 'carrito',
     loadChildren: () =>
       import('./protected/protected.module').then((m) => m.ProtectedModule),
+    canActivate: [ValidarTokenGuard],
+    canLoad: [ValidarTokenGuard],
   },
   {
     path: '**',
     /* component: NotFoundComponent, */
-    redirectTo: "/"
+    redirectTo: '/',
   },
 ];
 

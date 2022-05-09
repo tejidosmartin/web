@@ -6,6 +6,7 @@ import { BuscadorComponent } from './components/buscador/buscador.component';
 import { CardProductoComponent } from './components/card-producto/card-producto.component';
 import { UiModuleModule } from '../ui/ui-module.module';
 import { SharedModule } from '../shared/shared.module';
+import { ImagenPipe } from './pipes/imagen.pipe';
 
 
 
@@ -13,7 +14,8 @@ import { SharedModule } from '../shared/shared.module';
   declarations: [
     ListComponent,
     BuscadorComponent,
-    CardProductoComponent,   
+    CardProductoComponent,
+    ImagenPipe,   
   ],
   imports: [
     CommonModule,

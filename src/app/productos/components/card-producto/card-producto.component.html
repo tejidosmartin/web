@@ -1,15 +1,15 @@
-<div class="container page-wrapper">
+<!-- <div class="container page-wrapper">
     <div class="page-inner">
         <div class="row">
             <div class="el-wrapper">
                 <div class="box-up">
-                    <img class="img" src="http://code.slicecrowd.com/labs/4/images/t-shirt.png" alt="">
+                    <img class="img" [src]="producto | imagen">
                     <div class="img-info">
                         <div class="info-inner">
-                            <span class="p-name">name</span>
-                            <span class="p-company">sub</span>
+                            <span class="p-name">{{producto.nombre}}</span>
+                            <span class="p-company">{{producto.familia}}</span>
                         </div>
-                        <div class="a-size">Available sizes : <span class="size">S , M , L , XL</span></div>
+                        <div class="a-size">Tallas disponibles : <span class="size">{{producto.talla}}</span></div>
                     </div>
                 </div>
 
@@ -21,11 +21,53 @@
                     <a class="cart" href="#">
                         <span class="price">$120</span>
                         <span class="add-to-cart">
-                            <span class="txt">Add in cart</span>
+                            <span class="txt">Añadir al carrito</span>
                         </span>
                     </a>
                 </div>
             </div>
         </div>
+    </div>
+</div> -->
+
+
+
+<div class="card">
+    <img class="card-img" [src]="producto | imagen">
+    <div class="card-img-overlay d-flex justify-content-end">
+        <a href="#" class="card-link text-danger like">
+            <i class="fas fa-heart"></i>
+        </a>
+    </div>
+    <div class="card-body d-flex flex-column">
+        <div class="content">
+            <h4 class="card-title">{{producto.nombre}}</h4>
+            <h6 class="card-subtitle mb-2 text-muted">Style: VA33TXRJ5</h6>
+            <p class="card-text">
+                {{producto.descripcion}}
+            </p>
+            <!-- <div class="options d-flex flex-fill">
+                                        <select class="custom-select mr-1">
+                                            <option selected>Color</option>
+                                            <option value="1">Green</option>
+                                            <option value="2">Blue</option>
+                                            <option value="3">Red</option>
+                                        </select>
+                                        <select class="custom-select ml-1">
+                                            <option selected>Size</option>
+                                            <option value="1">41</option>
+                                            <option value="2">42</option>
+                                            <option value="3">43</option>
+                                        </select>
+                                    </div> -->
+
+        </div>
+        <div class="buy d-flex justify-content-between align-items-center">
+            <div class="price text-success">
+                <h5 class="mt-4">$125</h5>
+            </div>
+            <a href="#" class="btn btn-danger mt-3"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+        </div>
+
     </div>
 </div>

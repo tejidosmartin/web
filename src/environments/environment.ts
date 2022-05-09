@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   baseUrl: "http://localhost/tejidosmartin/server/controller",
+  mernUrl: "http://localhost:4000/api"
 };
 
 /*

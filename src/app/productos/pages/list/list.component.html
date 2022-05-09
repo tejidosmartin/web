@@ -1,66 +1,9 @@
 <app-buscador></app-buscador>
 
 <div class="container">
-    <div class="row">
-        <div class="col-md-4">
-            <app-card-producto></app-card-producto>
-        </div>
-        <div class="col-md-4">
-            <app-card-producto></app-card-producto>
-        </div>
-        <div class="col-md-4">
-            <app-card-producto></app-card-producto>
-        </div>
-        <div class="col-md-4">
-            <app-card-producto></app-card-producto>
-        </div>
-        <div class="col-md-4">
-            <app-card-producto></app-card-producto>
-        </div>
-        <div class="col-md-4">
-            <app-card-producto></app-card-producto>
-        </div>
-        <div class="col-md-4">
-            <app-card-producto></app-card-producto>
-        </div>
-        <div class="col-md-4">
-            <app-card-producto></app-card-producto>
-        </div>
-        <div class="col-md-4">
-            <app-card-producto></app-card-producto>
+    <div class="row ">
+        <div class="col-12 col-sm-8 col-md-6 col-lg-4 my-3 page-wrapper" *ngFor="let producto of productos">
+            <app-card-producto class="page-inner" [producto]="producto"></app-card-producto>
         </div>
     </div>
-    <!-- <div class="row">
-        <div class="col-md-4">
-            <app-card-producto></app-card-producto>
-        </div>
-        <div class="col-md-4">
-            <app-card-producto></app-card-producto>
-        </div>
-        <div class="col-md-4">
-            <app-card-producto></app-card-producto>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-4">
-            <app-card-producto></app-card-producto>
-        </div>
-        <div class="col-md-4">
-            <app-card-producto></app-card-producto>
-        </div>
-        <div class="col-md-4">
-            <app-card-producto></app-card-producto>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-4">
-            <app-card-producto></app-card-producto>
-        </div>
-        <div class="col-md-4">
-            <app-card-producto></app-card-producto>
-        </div>
-        <div class="col-md-4">
-            <app-card-producto></app-card-producto>
-        </div>
-    </div> -->
 </div>

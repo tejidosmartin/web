@@ -29,7 +29,8 @@ import { SharedModule } from './shared/shared.module';
     MatDialogModule,
     MaterialModule,
     UiModuleModule,
-    SharedModule
+    SharedModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],
