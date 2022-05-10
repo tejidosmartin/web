@@ -1,0 +1,37 @@
+.header {
+  font-family: "Alegreya Sans", sans-serif;
+  font-weight: 400;
+  color: #4d4d4d;
+  font-size: 36px;
+}
+
+.header h1 {
+  font-size: 30px !important;
+  font-weight: bold !important;
+  font-family: "Lato" !important;
+}
+
+.content-cms {
+  font-family: "Alegreya Sans", sans-serif;
+  font-weight: 400;
+  color: #4d4d4d;
+  font-size: 18px;
+  line-height: 24px;
+  margin: 10px 0px;
+}
+
+.content-cms p {
+  font-family: "Lato" !important;
+  font-size: 18px !important;
+  line-height: 32px !important;
+}
+
+.content-cms ul {
+  list-style-type: disc;
+  padding-left: 15px;
+}
+
+.western {
+  font-weight: bold !important;
+  font-family: "Lato" !important;
+}

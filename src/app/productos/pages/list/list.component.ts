@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Producto } from '../../interfaces/producto.interface';
-import { ProductosService } from '../../services/productos.service';
+import { ProductosService } from '../../../services/productos.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-list',
@@ -16,18 +18,32 @@ import { ProductosService } from '../../services/productos.service';
 
       .page-wrapper .page-inner {
         display: -webkit-flex;
-        /* display: flex; */
       }
-      
     `,
   ],
 })
 export class ListComponent implements OnInit {
   productos: Producto[] = [];
+  filter!: string;
 
-  constructor(private _productoService: ProductosService) {}
+  constructor(
+    private _productoService: ProductosService,
+    private _route: Router,
+    private _activedRoute: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
+    if (this._route.url.includes('filter')) {
+      this._activedRoute.queryParams
+        .pipe(
+          switchMap((params) => {
+            console.log(params['filter']);
+
+            return this._productoService.getFilterByFamily(params['filter']);
+          })
+        )
+        .subscribe();
+    }
     this._productoService.getProducts().subscribe((productos) => {
       this.productos = productos;
       console.log(this.productos);

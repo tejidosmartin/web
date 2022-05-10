@@ -12,6 +12,8 @@ import { CookiesComponent } from './pages/cookies/cookies.component';
 import { PrivacidadComponent } from './pages/privacidad/privacidad.component';
 import { PagosComponent } from './pages/pagos/pagos.component';
 import { SharedModule } from '../shared/shared.module';
+import { EnviosComponent } from './pages/envios/envios.component';
+import { DevolucionesComponent } from './pages/devoluciones/devoluciones.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,8 @@ import { SharedModule } from '../shared/shared.module';
     CookiesComponent,
     PrivacidadComponent,
     PagosComponent,
+    EnviosComponent,
+    DevolucionesComponent,
   ],
   imports: [CommonModule, MaterialModule, UiRoutingModule, SharedModule],
 })

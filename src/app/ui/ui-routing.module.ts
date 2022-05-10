@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { AvisoLegalComponent } from './pages/aviso-legal/aviso-legal.component';
 import { ContactoComponent } from './pages/contacto/contacto.component';
 import { CookiesComponent } from './pages/cookies/cookies.component';
+import { DevolucionesComponent } from './pages/devoluciones/devoluciones.component';
+import { EnviosComponent } from './pages/envios/envios.component';
 import { HomeComponent } from './pages/home/home.component';
 import { MainComponent } from './pages/main/main.component';
 import { PagosComponent } from './pages/pagos/pagos.component';
@@ -42,6 +44,14 @@ const routes: Routes = [
         path: "pago-seguro",
         component: PagosComponent
       },
+      {
+        path: "envios-entregas",
+        component: EnviosComponent
+      },
+      {
+        path: "devoluciones",
+        component: DevolucionesComponent
+      }
     ]
   },
 ];

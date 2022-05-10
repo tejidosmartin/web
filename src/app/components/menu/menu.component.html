@@ -10,7 +10,7 @@
       <li><a routerLink="/">Home</a></li>
       <li><a routerLink="/eventos">Proximos Eventos</a></li>
       <li><a routerLink="/productos">Catálogo</a></li>
-      <li><a routerLink="/productos">Vestidos</a></li>
+      <li><a [routerLink]="['/productos']" [queryParams]="{filter: 'vestido boda'}">Vestidos</a></li>
       <li><a routerLink="/productos">Accesorios</a></li>
       <li>
         <a routerLink="/auth/login">
