@@ -14,6 +14,7 @@ import { PagosComponent } from './pages/pagos/pagos.component';
 import { SharedModule } from '../shared/shared.module';
 import { EnviosComponent } from './pages/envios/envios.component';
 import { DevolucionesComponent } from './pages/devoluciones/devoluciones.component';
+import { NewsletterComponent } from './components/newsletter/newsletter.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { DevolucionesComponent } from './pages/devoluciones/devoluciones.compone
     PagosComponent,
     EnviosComponent,
     DevolucionesComponent,
+    NewsletterComponent,
   ],
   imports: [CommonModule, MaterialModule, UiRoutingModule, SharedModule],
 })

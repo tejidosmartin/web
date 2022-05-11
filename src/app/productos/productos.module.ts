@@ -7,6 +7,7 @@ import { CardProductoComponent } from './components/card-producto/card-producto.
 import { UiModuleModule } from '../ui/ui-module.module';
 import { SharedModule } from '../shared/shared.module';
 import { ImagenPipe } from './pipes/imagen.pipe';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -21,7 +22,9 @@ import { ImagenPipe } from './pipes/imagen.pipe';
     CommonModule,
     ProductosRoutingModule,
     UiModuleModule,
-    SharedModule
+    SharedModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class ProductosModule { }

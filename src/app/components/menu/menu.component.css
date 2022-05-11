@@ -154,7 +154,7 @@
   opacity: 1;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 970px) {
   #toggle {
     visibility: visible;
     opacity: 1;
@@ -179,7 +179,7 @@
   }
 }
 
-@media (min-width: 900px) {
+@media (min-width: 970px) {
   #resize {
     visibility: hidden !important;
   }
