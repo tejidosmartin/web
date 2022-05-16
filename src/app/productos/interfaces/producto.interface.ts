@@ -1,7 +1,7 @@
 import { Proveedor } from './proveedor.interface';
 
 export interface Producto {
-  id: number;
+  id?: number;
   familia: string;
   serie: string;
   modelo: string;

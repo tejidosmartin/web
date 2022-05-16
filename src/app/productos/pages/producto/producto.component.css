@@ -1,0 +1,62 @@
+.small-img-group {
+  display: flex;
+  justify-content: space-between;
+}
+.small-img-col {
+  flex-basis: 24%;
+  cursor: pointer;
+}
+.sproduct select {
+  display: block;
+  padding: 5px 10px;
+}
+.sproduct input {
+  width: 50px;
+  height: 40px;
+  padding-left: 10px;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.buy-btn{
+    background-color: rgb(123, 31, 162);
+    opacity: 1;
+    transition: 0.3s all;
+}
+
+.header {
+  width: 100%;
+  margin: auto;
+}
+
+.header .header-title h1,
+.header-title h2,
+.header-title h3,
+.header-title h4 {
+  text-align: center;
+  font-size: 25px;
+  font-weight: 300;
+  color: #222;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+
+  display: grid;
+  grid-template-columns: 1fr max-content 1fr;
+  grid-template-rows: 27px 0;
+  grid-gap: 10px;
+  align-items: center;
+}
+
+.header-title h1:after,
+.header-title h1:before,
+.header-title h2:after,
+.header-title h2:before,
+.header-title h3:after,
+.header-title h3:before {
+  content: " ";
+  display: block;
+  border-bottom: 1px solid #c50000;
+  border-top: 1px solid #c50000;
+  height: 5px;
+  background-color: #f8f8f8;
+}

@@ -12,19 +12,36 @@ export class ProductosService {
 
   constructor(private _http: HttpClient) {}
 
-  getProducts() {
+  get(action: string) {
     return this._http.get<Producto[]>(
-      `${this._urlBase}/Controller.php?action=list`
+      `${this._urlBase}/Controller.php?action=${action}`
     );
   }
 
-  getProduct(codigo: number) {
-    return this._http.get(`${this._urlBase}/Controller.php?codigo=${codigo}`);
+  getProduct(codigo: string) {
+    return this._http.get<Producto>(
+      `${this._urlBase}/Controller.php?codigo=${codigo}`
+    );
   }
 
-  getFilterByFamily(filter: String){
+  getProductsFromCady(){
+    return this._http.get<Producto[]>(`${this._urlBase}/controller-cady.php`)
+  }
+
+  getFilterByFamily(filter: string) {
     return this._http.get<Producto[]>(
       `${this._urlBase}/Controller.php?filter=${filter}`
     );
+  }
+
+  addArticleToCady(producto: Producto) {
+    return this._http.post<Producto>(
+      `${this._urlBase}/controller-add-cady.php`,
+      JSON.stringify(producto)
+    );
+  }
+
+  removeArticleToCady(){
+
   }
 }

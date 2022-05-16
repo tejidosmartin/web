@@ -8,6 +8,9 @@ import { UiModuleModule } from '../ui/ui-module.module';
 import { SharedModule } from '../shared/shared.module';
 import { ImagenPipe } from './pipes/imagen.pipe';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ProductoComponent } from './pages/producto/producto.component';
+import { HomeComponent } from './pages/home/home.component';
+import { MaterialModule } from '../material/material.module';
 
 
 
@@ -16,7 +19,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ListComponent,
     BuscadorComponent,
     CardProductoComponent,
-    ImagenPipe,   
+    ImagenPipe,
+    ProductoComponent,
+    HomeComponent,   
   ],
   imports: [
     CommonModule,
@@ -24,7 +29,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     UiModuleModule,
     SharedModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MaterialModule
   ]
 })
 export class ProductosModule { }
