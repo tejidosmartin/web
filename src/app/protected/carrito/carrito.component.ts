@@ -12,6 +12,9 @@ import { ProductosService } from 'src/app/services/productos.service';
 export class CarritoComponent implements OnInit {
   productos: Producto[] = [];
 
+  public totalItem: number = 0
+
+
   get usuario() {
     return this._authService.usuario;
   }

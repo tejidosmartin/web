@@ -16,11 +16,12 @@ export class CardProductoComponent implements OnInit {
 
   addToCarrito(producto: Producto) {
     this._productoService
-      .addArticleToCady(producto)
+      .addArticleToCart(producto)
       .subscribe((datos: any) => {
         if (datos['resultado']==='OK') {
           alert(datos['mensaje'])
         }
       });
+    
   }
 }
