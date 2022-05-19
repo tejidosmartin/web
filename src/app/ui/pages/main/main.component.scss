@@ -1,0 +1,14 @@
+$bp-md: 600px;
+$bp-lg: 800px;
+
+.page-wrapper {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  .page-inner {
+    display: -webkit-flex;
+  }
+}

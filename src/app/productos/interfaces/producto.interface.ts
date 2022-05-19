@@ -1,7 +1,7 @@
 import { Proveedor } from './proveedor.interface';
 
 export interface Producto {
-  id?: number;
+  id?: string;
   familia: string;
   serie: string;
   modelo: string;
@@ -12,4 +12,5 @@ export interface Producto {
   talla: string;
   stock: number;
   alt_img?: string;
+  cantidad?: number;
 }

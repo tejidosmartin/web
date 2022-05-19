@@ -3,27 +3,22 @@ import { CommonModule } from '@angular/common';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { GoTopComponent } from './go-top/go-top.component';
 import { MaterialModule } from '../material/material.module';
-/* import { MenuComponent } from './menu/menu.component';
-import { FooterComponent } from './footer/footer.component'; */
-
-
+import { ConfirmComponent } from './confirm/confirm.component';
+import { TitleComponent } from './title/title.component';
 
 @NgModule({
   declarations: [
     NotFoundComponent,
     GoTopComponent,
-    /* MenuComponent,
-    FooterComponent */
+    ConfirmComponent,
+    TitleComponent,
   ],
-  imports: [
-    CommonModule,
-    MaterialModule,
-  ],
+  imports: [CommonModule, MaterialModule],
   exports: [
     NotFoundComponent,
-    GoTopComponent
-    /* MenuComponent,
-    FooterComponent */
-  ]
+    GoTopComponent,
+    ConfirmComponent,
+    TitleComponent,
+  ],
 })
-export class SharedModule { }
+export class SharedModule {}

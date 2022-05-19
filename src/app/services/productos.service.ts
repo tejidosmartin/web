@@ -46,6 +46,10 @@ export class ProductosService {
     );
   }
 
+  removeArticleToCart(id: string){
+    return this._http.delete<Producto>(`${this._urlBase}/controller-remove-article.php?id=${id}`)
+  }
+
   /* addArticleToCart(producto: Producto) {
     this.itemList.push(producto);
     this.productList.next(this.itemList);

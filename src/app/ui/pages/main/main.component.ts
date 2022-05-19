@@ -1,15 +1,17 @@
 import { Component, OnInit } from '@angular/core';
+import { MOCKCARDHOME } from '../../mock/mock-card';
 
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
-  styles: []
+  styleUrls: ['./main.component.scss'],
 })
 export class MainComponent implements OnInit {
+  titulo: string = 'Nueva colección';
 
-  constructor() { }
+  cards = MOCKCARDHOME;
 
-  ngOnInit(): void {
-  }
+  constructor() {}
 
+  ngOnInit(): void {}
 }

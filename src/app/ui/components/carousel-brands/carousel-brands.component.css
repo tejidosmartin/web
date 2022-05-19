@@ -20,36 +20,6 @@ img {
   /* margin-left: -100px; */
 }
 
-.header{
-  width: 300px;
-  margin: auto;
-}
-
-.header .header-title h1 {
-  text-align: center;
-  font-size: 25px;
-  font-weight: 300;
-  color: #222;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-
-  display: grid;
-  grid-template-columns: 1fr max-content 1fr;
-  grid-template-rows: 27px 0;
-  grid-gap: 10px;
-  align-items: center;
-}
-
-.header-title h1:after,
-.header-title h1:before {
-  content: " ";
-  display: block;
-  border-bottom: 1px solid #c50000;
-  border-top: 1px solid #c50000;
-  height: 5px;
-  background-color: #f8f8f8;
-}
-
 @media screen and (max-width: 620px) {
   img {
     width: 290px;

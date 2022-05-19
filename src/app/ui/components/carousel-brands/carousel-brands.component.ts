@@ -12,6 +12,9 @@ const animation = { duration: 5000, easing: (t: any) => t };
   ],
 })
 export class CarouselBrandsComponent implements OnInit {
+
+  titulo = "Marcas Asociadas"
+
   constructor() {}
 
   ngOnInit(): void {}

@@ -15,6 +15,7 @@ import { SharedModule } from '../shared/shared.module';
 import { EnviosComponent } from './pages/envios/envios.component';
 import { DevolucionesComponent } from './pages/devoluciones/devoluciones.component';
 import { NewsletterComponent } from './components/newsletter/newsletter.component';
+import { CardHomeComponent } from './components/card-home/card-home.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { NewsletterComponent } from './components/newsletter/newsletter.componen
     EnviosComponent,
     DevolucionesComponent,
     NewsletterComponent,
+    CardHomeComponent,
   ],
   imports: [CommonModule, MaterialModule, UiRoutingModule, SharedModule],
 })

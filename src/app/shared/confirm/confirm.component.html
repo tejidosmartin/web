@@ -1,0 +1,17 @@
+<h1>¿Estas seguro?</h1>
+<hr>
+
+<p>
+    Seguro que quieres eliminar "{{data.nombre}}" del carrito
+    <br>
+    ¿Desea continuar?
+</p>
+
+<div>
+    <button mat-button (click)="delete()" color="warn">
+        Si
+    </button>
+    <button mat-button (click)="close()">
+        Cancelar
+    </button>
+</div>
