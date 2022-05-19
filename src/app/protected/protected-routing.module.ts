@@ -6,23 +6,27 @@ import { HomeComponent } from './pages/home/home.component';
 
 const routes: Routes = [
   {
-    path: "",
+    path: '',
     component: HomeComponent,
     children: [
       {
-        path: "productos",
-        component: CarritoComponent
+        path: 'productos',
+        component: CarritoComponent,
       },
       {
-        path: "finalizar-compra",
-        component: FinalizarCompraComponent
-      }
-    ]
-  }
+        path: 'finalizar-compra',
+        component: FinalizarCompraComponent,
+      },
+      {
+        path: '',
+        redirectTo: 'productos',
+      },
+    ],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class ProtectedRoutingModule { }
+export class ProtectedRoutingModule {}

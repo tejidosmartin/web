@@ -7,6 +7,7 @@ import { MOCKCARDHOME } from '../../mock/mock-card';
   styleUrls: ['./main.component.scss'],
 })
 export class MainComponent implements OnInit {
+  
   titulo: string = 'Nueva colección';
 
   cards = MOCKCARDHOME;

@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ProductosService } from 'src/app/services/productos.service';
+import Swal from 'sweetalert2';
 import { Producto } from '../../interfaces/producto.interface';
 
 @Component({
@@ -15,13 +16,18 @@ export class CardProductoComponent implements OnInit {
   ngOnInit(): void {}
 
   addToCarrito(producto: Producto) {
-    this._productoService
-      .addArticleToCart(producto)
-      .subscribe((datos: any) => {
-        if (datos['resultado']==='OK') {
-          alert(datos['mensaje'])
-        }
-      });
-    
+    this._productoService.addArticleToCart(producto).subscribe((datos: any) => {
+      console.log(datos);
+      
+      if (datos['resultado'] === 'OK') {
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Producto añadido al carrito',
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      }
+    });
   }
 }

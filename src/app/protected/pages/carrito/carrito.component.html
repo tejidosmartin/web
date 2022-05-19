@@ -1,33 +1,41 @@
-<div class="wrapper">
-    <h1>Carrito</h1>
-    <div class="project">
-        <div class="shop">
+<div>
 
-            <div class="box" *ngFor="let producto of productos">
-                <img class="card-img" [src]="producto | imagen">
-                <div class="content">
-                    <h3>{{producto.nombre}}</h3>
-                    <h4>{{producto.precio | currency:"EUR":"symbol-narrow":"1.0-4"}}</h4>
-                    <p class="unit">Cantidad: <input [value]="producto.cantidad"></p>
+    <div class="mt-4">
+        <app-title [titulo]="titulo"></app-title>
+    </div>
 
-                    <p class="btn-area" (click)="eliminar(producto)">
-                        <i class="fa fa-trash"></i>
-                        <span class="btn2">Eliminar del carrito</span>
-                    </p>
+
+    <div class="wrapper">
+
+        <div class="project">
+            <div class="shop">
+
+                <div class="box" *ngFor="let producto of productos">
+                    <img class="card-img" [src]="producto | imagen">
+                    <div class="content">
+                        <h3>{{producto.nombre}}</h3>
+                        <h4>{{producto.precio | currency:"EUR":"symbol-narrow":"1.0-4"}}</h4>
+                        <p class="unit">Cantidad: <input [value]="producto.cantidad"></p>
+
+                        <p class="btn-area" (click)="eliminar(producto)">
+                            <i class="fa fa-trash"></i>
+                            <span class="btn2">Eliminar del carrito</span>
+                        </p>
+                    </div>
                 </div>
-            </div>
 
 
-            <div class="right-bar">
-                <p><span>Subtotal</span><span>$10</span></p>
-                <hr>
-                <p><span>Tax (%5)</span><span>$10</span></p>
-                <hr>
-                <p><span>Shipping</span><span>$10</span></p>
-                <hr>
-                <p><span>Total</span><span>$10</span></p>
+                <div class="right-bar">
+                    <p><span>Subtotal</span><span>$10</span></p>
+                    <hr>
+                    <p><span>Tax (%5)</span><span>$10</span></p>
+                    <hr>
+                    <p><span>Shipping</span><span>$10</span></p>
+                    <hr>
+                    <p><span>Total</span><span>$10</span></p>
 
-                <a href=""><i class="fa fa-shopping-cart"></i>Terminar y comprar</a>
+                    <a href=""><i class="fa fa-shopping-cart"></i>Terminar y comprar</a>
+                </div>
             </div>
         </div>
     </div>

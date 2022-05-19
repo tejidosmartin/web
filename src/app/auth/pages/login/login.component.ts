@@ -25,7 +25,6 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
   login() {
-    console.log(this.form.value);
     const { email, password } = this.form.value;
 
     this._authService.login(email, password).subscribe((ok) => {
@@ -33,7 +32,7 @@ export class LoginComponent implements OnInit {
       console.log(ok);
       
       if (ok === true) {
-        this._router.navigateByUrl('/carrito');
+        this._router.navigateByUrl('/carrito/productos');
       } else {
         Swal.fire("Error", ok, "error")
       }

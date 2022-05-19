@@ -23,6 +23,7 @@ import { switchMap } from 'rxjs';
   ],
 })
 export class ListComponent implements OnInit {
+  titulo: string = "Catálogo"
   productos: Producto[] = [];
   filter!: string;
 

@@ -1,5 +1,8 @@
-<div class="container sproduct my-5 pt-5">
-    <div class="row mt-5">
+<div class="sproduct my-2 pt-3">
+    <div class="text-center">
+        <h1>Detalles del producto</h1>
+    </div>
+    <div class="row mt-3">
         <div class="col-lg-5 col-md-12 col-12">
             <img [src]="producto | imagen" alt="" class="img-fluid w-100 pb-1">
 
@@ -25,25 +28,24 @@
 
         <div class="col-lg-5 col-md-12 col-12">
 
-            <div class="header">
-                <div class="header-title">
-                    <h1>{{producto.nombre}}</h1>
-                </div>
+            <div class="mt-2">
+                <h1>{{producto.nombre}}</h1>
             </div>
 
-            <h3 class="py-4">{{producto.familia}}</h3>
-            <h2>{{producto.precio | currency:"EUR":"symbol-narrow":"1.0-4"}}</h2>
+            <h3 class="py-1">Tipo: <b>{{producto.familia}}</b></h3>
+            <h3>Precio: {{producto.precio | currency:"EUR":"symbol-narrow":"1.0-4"}}</h3>
 
             <input type="number" value="1">
-            <button mat-raised-button color="primary">Añadir al carrito</button>
+            <button mat-raised-button color="primary" (click)="addToCarrito(producto)">Añadir al carrito</button>
 
-            <div class="header mt-4 mb-4">
-                <div class="header-title">
-                    <h3>Detalles de producto</h3>
-                </div>
+            <div class="mt-3">
+                <h1>Descripcion</h1>
             </div>
 
-            <span>{{producto.descripcion}}</span>
+            <div class="mt-1 mb-3">
+                <span>{{producto.descripcion}}</span>
+            </div>
+            
         </div>
 
 

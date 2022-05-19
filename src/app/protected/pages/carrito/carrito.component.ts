@@ -2,11 +2,12 @@ import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { filter, map, switchMap, tap } from 'rxjs';
+import { catchError, filter, map, of, switchMap, tap } from 'rxjs';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { Producto } from 'src/app/productos/interfaces/producto.interface';
 import { ProductosService } from 'src/app/services/productos.service';
 import { ConfirmComponent } from 'src/app/shared/confirm/confirm.component';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-carrito',
@@ -15,6 +16,8 @@ import { ConfirmComponent } from 'src/app/shared/confirm/confirm.component';
 })
 export class CarritoComponent implements OnInit {
   productos: Producto[] = [];
+  errorMsg!: string;
+  titulo: string = 'Carrito';
 
   public totalItem: number = 0;
 
@@ -53,11 +56,12 @@ export class CarritoComponent implements OnInit {
   }
 
   logout() {
-    this._router.navigateByUrl('/auth/login');
+    this._router.navigateByUrl('/');
+    this._authService.logout();
   }
 
   eliminar(producto: Producto) {
-    const dialog = this._dialog.open(ConfirmComponent, {
+    /* const dialog = this._dialog.open(ConfirmComponent, {
       width: '340px',
       data: { ...producto },
     });
@@ -69,9 +73,10 @@ export class CarritoComponent implements OnInit {
           return this._productosService.removeArticleToCart(producto.id!).pipe(
             tap(() =>
               this._router
-                .navigateByUrl('/productos', { skipLocationChange: true })
+                .navigateByUrl('/', { skipLocationChange: true })
                 .then(() => {
-                  this._router.navigate([decodeURI(this._location.path())]);
+                  this._router.navigate([currentUrl]);
+                  console.log(currentUrl);
                 })
             )
           );
@@ -79,9 +84,44 @@ export class CarritoComponent implements OnInit {
       )
       .subscribe((datos: any) => {
         console.log(datos);
-        
+
         if (datos['resultado'] === 'OK') {
           alert(datos['mensaje']);
+        } else {
+          console.log(datos);
+        }
+      }); */
+
+    this._productosService
+      .removeArticleToCart(producto.id!)
+      .pipe(
+        catchError((error) => {
+          if (error.error instanceof ErrorEvent) {
+            this.errorMsg = `Error: ${error.error.message}`;
+          } else {
+            this.errorMsg = `Error: ${error.message}`;
+          }
+          return of([]);
+        }),
+        tap(() =>
+        this._router
+        .navigateByUrl('/refresh', { skipLocationChange: true })
+        .then(() => {
+          this._router.navigate([decodeURI(this._location.path())]);
+        })
+        )
+      )
+      .subscribe((datos: any) => {
+
+        if (datos['resultado'] === 'OK') {
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Producto eliminado del carrito',
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        } else {
         }
       });
   }

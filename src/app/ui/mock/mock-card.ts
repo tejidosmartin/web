@@ -2,39 +2,39 @@ import { CardHome } from '../interfaces/card-home.interface';
 
 export const MOCKCARDHOME: CardHome[] = [
   {
-    nombre: 'Title here',
+    nombre: 'Chaquetas',
     descripcion: 'long description here',
     imgPath:
-      'https://az617363.vo.msecnd.net/imgmodels/models/MD30001312/tommy.004f338d1671f97fd823baea197637b39af_thumb.jpg',
+      'https://media.gq.com.mx/photos/5f8da40816ae4239f08bab3d/4:3/w_2664,h_1998,c_limit/GettyImages-643093548.jpg',
   },
   {
-    nombre: 'Title here',
+    nombre: 'Vestidos de boda',
     descripcion: 'long description here',
     imgPath:
-      'https://image-live.prd.b2c-coremedia.eu.pvh.cloud/caas/v1/media/990926/data/9a782f6450ef7cdfe5637f2e4335a152/portrait_ratio904x1416/904/splash-msw-feb22-904x1416px-desktop.jpg',
+      'https://cdn0.matrimonio.com.pe/article-dress/6203/original/1280/jpg/m353026.jpeg',
   },
   {
-    nombre: 'Title here',
+    nombre: 'Camisas',
     descripcion: 'long description here',
     imgPath:
       'https://pa.tommy.com/arquivos/images-menu-msw-ropa-574x740-v1.jpg?v=637360682839600000',
   },
   {
-    nombre: 'Title here',
+    nombre: 'Vestidos',
     descripcion: 'long description here',
     imgPath:
-      'https://tommycolombia.vteximg.com.br/arquivos/ids/173634-500-667/1M57636661_888_1.jpg?v=637359901315000000',
+      'https://assets.bigcartel.com/product_images/327804450/Smile-maxipolo-rosa-_3_.jpg?auto=format&fit=max&w=900',
   },
   {
-    nombre: 'Title here',
+    nombre: 'Pantalones',
     descripcion: 'long description here',
     imgPath:
       'https://i.pinimg.com/originals/21/12/c8/2112c85f35103b3d49b891a05bc63c97.jpg',
   },
   {
-    nombre: 'Title here',
+    nombre: 'Blusas',
     descripcion: 'long description here',
     imgPath:
-      'https://i.pinimg.com/originals/05/a8/7f/05a87ffa7b1f8f9124e842d932b5f514.jpg',
+      'https://media.vogue.mx/photos/61b89a1b0122d1542174b3b2/master/w_1600%2Cc_limit/GettyImages-1278688271.jpg',
   },
 ];

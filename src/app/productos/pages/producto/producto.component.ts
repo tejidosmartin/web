@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { switchMap } from 'rxjs';
 import { ProductosService } from 'src/app/services/productos.service';
 import { Producto } from '../../interfaces/producto.interface';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-producto',
@@ -10,6 +11,9 @@ import { Producto } from '../../interfaces/producto.interface';
   styleUrls: ['./producto.component.css'],
 })
 export class ProductoComponent implements OnInit {
+
+  
+
   producto: Producto = {
     familia: '',
     serie: '',
@@ -22,6 +26,8 @@ export class ProductoComponent implements OnInit {
     stock: 0,
     alt_img: '',
   };
+
+  titleProd: string = `Detalles del producto`
 
   constructor(
     private _productoService: ProductosService,
@@ -38,5 +44,22 @@ export class ProductoComponent implements OnInit {
       .subscribe((producto) => {
         this.producto = producto;
       });
+  }
+
+  addToCarrito(producto: Producto) {
+    this._productoService
+      .addArticleToCart(producto)
+      .subscribe((datos: any) => {
+        if (datos['resultado']==='OK') {
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Producto añadido al carrito',
+            showConfirmButton: false,
+            timer: 1500
+          })
+        }
+      });
+    
   }
 }
