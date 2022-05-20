@@ -50,6 +50,10 @@ export class ProductosService {
     return this._http.delete<Producto>(`${this._urlBase}/controller-remove-article.php?id=${id}`)
   }
 
+  updateItemMenu(){
+    
+  }
+
   /* addArticleToCart(producto: Producto) {
     this.itemList.push(producto);
     this.productList.next(this.itemList);

@@ -17,6 +17,10 @@
         </a>
         <a routerLink="/carrito/productos">
           <mat-icon class="spacer-mat-icon">shopping_cart</mat-icon>
+          <span style="margin-left: -12px; margin-right: 5px;" class="badge bg-danger">{{productos.length}}</span>
+        </a>
+        <a (click)="logout()">
+          <mat-icon>power_settings_new</mat-icon>
         </a>
       </li>
     </ul>
@@ -45,6 +49,11 @@
         </a>
         <a routerLink="/carrito/productos">
           <mat-icon class="spacer-mat-icon">shopping_cart</mat-icon>
+          <span style="margin-left: -12px; margin-right: 5px;"
+            class="badge bg-danger">{{productos.length}}</span>
+        </a>
+        <a (click)="logout()">
+          <mat-icon>power_settings_new</mat-icon>
         </a>
       </li>
     </ul>

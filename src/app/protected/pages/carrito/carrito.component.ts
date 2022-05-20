@@ -6,6 +6,7 @@ import { catchError, filter, map, of, switchMap, tap } from 'rxjs';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { Producto } from 'src/app/productos/interfaces/producto.interface';
 import { ProductosService } from 'src/app/services/productos.service';
+import { UpdateCartService } from 'src/app/services/update-cart.service';
 import { ConfirmComponent } from 'src/app/shared/confirm/confirm.component';
 import Swal from 'sweetalert2';
 
@@ -28,13 +29,14 @@ export class CarritoComponent implements OnInit {
   constructor(
     private _router: Router,
     private _authService: AuthService,
-    private _productosService: ProductosService,
+    private _productoService: ProductosService,
     private _location: Location,
-    private _dialog: MatDialog
+    private _dialog: MatDialog,
+    private _updateCartService: UpdateCartService
   ) {}
 
   ngOnInit(): void {
-    this._productosService
+    this._productoService
       .getProductsFromCady()
       .pipe(
         map((productos) => {
@@ -53,46 +55,13 @@ export class CarritoComponent implements OnInit {
       .subscribe((next) => {
         this.productos = next;
       });
-  }
 
-  logout() {
-    this._router.navigateByUrl('/');
-    this._authService.logout();
+    this._updateCartService.setUpdatedCart$(this.productos);
   }
 
   eliminar(producto: Producto) {
-    /* const dialog = this._dialog.open(ConfirmComponent, {
-      width: '340px',
-      data: { ...producto },
-    });
-    dialog
-      .afterClosed()
-      .pipe(
-        filter(() => !!producto),
-        switchMap(() => {
-          return this._productosService.removeArticleToCart(producto.id!).pipe(
-            tap(() =>
-              this._router
-                .navigateByUrl('/', { skipLocationChange: true })
-                .then(() => {
-                  this._router.navigate([currentUrl]);
-                  console.log(currentUrl);
-                })
-            )
-          );
-        })
-      )
-      .subscribe((datos: any) => {
-        console.log(datos);
 
-        if (datos['resultado'] === 'OK') {
-          alert(datos['mensaje']);
-        } else {
-          console.log(datos);
-        }
-      }); */
-
-    this._productosService
+    this._productoService
       .removeArticleToCart(producto.id!)
       .pipe(
         catchError((error) => {
@@ -104,16 +73,17 @@ export class CarritoComponent implements OnInit {
           return of([]);
         }),
         tap(() =>
-        this._router
-        .navigateByUrl('/refresh', { skipLocationChange: true })
-        .then(() => {
-          this._router.navigate([decodeURI(this._location.path())]);
-        })
+          this._router
+            .navigateByUrl('/refresh', { skipLocationChange: true })
+            .then(() => {
+              this._router.navigate([decodeURI(this._location.path())]);
+            })
         )
       )
       .subscribe((datos: any) => {
+        console.log('entra');
 
-        if (datos['resultado'] === 'OK') {
+        if (datos['ok'] === 'true') {
           Swal.fire({
             position: 'center',
             icon: 'success',
@@ -122,7 +92,15 @@ export class CarritoComponent implements OnInit {
             timer: 1500,
           });
         } else {
+          Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title: 'Ocurrio un error a la hora de eliminar el producto',
+            showConfirmButton: false,
+            timer: 1500,
+          });
         }
       });
+      this._updateCartService.setUpdatedCart$(this.productos)
   }
 }
