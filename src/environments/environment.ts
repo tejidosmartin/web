@@ -4,7 +4,6 @@
 
 export const environment = {
   production: false,
-  /* baseUrl: "https://phpbackendtejidosmartin.herokuapp.com/controller", */
   baseUrl: "http://localhost:80/tejidosmartin/server/controller",
   mernUrl: "http://localhost:4000/api"
 };

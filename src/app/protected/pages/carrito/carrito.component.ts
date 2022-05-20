@@ -64,14 +64,14 @@ export class CarritoComponent implements OnInit {
     this._productoService
       .removeArticleToCart(producto.id!)
       .pipe(
-        catchError((error) => {
+        /* catchError((error) => {
           if (error.error instanceof ErrorEvent) {
             this.errorMsg = `Error: ${error.error.message}`;
           } else {
             this.errorMsg = `Error: ${error.message}`;
           }
           return of([]);
-        }),
+        }), */
         tap(() =>
           this._router
             .navigateByUrl('/refresh', { skipLocationChange: true })
@@ -81,8 +81,8 @@ export class CarritoComponent implements OnInit {
         )
       )
       .subscribe((datos: any) => {
-        console.log('entra');
-
+        console.log(datos);
+        
         if (datos['ok'] === 'true') {
           Swal.fire({
             position: 'center',
