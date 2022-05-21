@@ -1,4 +1,5 @@
 import { Location } from '@angular/common';
+import { HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
@@ -62,16 +63,9 @@ export class CarritoComponent implements OnInit {
   eliminar(producto: Producto) {
 
     this._productoService
-      .removeArticleToCart(producto.id!)
+      .removeArticleToCart(producto)
       .pipe(
-        /* catchError((error) => {
-          if (error.error instanceof ErrorEvent) {
-            this.errorMsg = `Error: ${error.error.message}`;
-          } else {
-            this.errorMsg = `Error: ${error.message}`;
-          }
-          return of([]);
-        }), */
+        
         tap(() =>
           this._router
             .navigateByUrl('/refresh', { skipLocationChange: true })

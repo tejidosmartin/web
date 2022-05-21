@@ -5,7 +5,10 @@
 export const environment = {
   production: false,
   baseUrl: "http://localhost:80/tejidosmartin/server/controller",
-  mernUrl: "http://localhost:4000/api"
+  mernUrl: "http://localhost:4000/api",
+  header: {
+    origin: "http://localhost:4200"
+  }
 };
 
 /*

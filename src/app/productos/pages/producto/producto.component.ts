@@ -11,9 +11,6 @@ import Swal from 'sweetalert2';
   styleUrls: ['./producto.component.css'],
 })
 export class ProductoComponent implements OnInit {
-
-  
-
   producto: Producto = {
     familia: '',
     serie: '',
@@ -27,7 +24,7 @@ export class ProductoComponent implements OnInit {
     alt_img: '',
   };
 
-  titleProd: string = `Detalles del producto`
+  titulo: string = "Detalles";
 
   constructor(
     private _productoService: ProductosService,
@@ -47,19 +44,16 @@ export class ProductoComponent implements OnInit {
   }
 
   addToCarrito(producto: Producto) {
-    this._productoService
-      .addArticleToCart(producto)
-      .subscribe((datos: any) => {
-        if (datos['resultado']==='OK') {
-          Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title: 'Producto añadido al carrito',
-            showConfirmButton: false,
-            timer: 1500
-          })
-        }
-      });
-    
+    this._productoService.addArticleToCart(producto).subscribe((datos: any) => {
+      if (datos['resultado'] === 'OK') {
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Producto añadido al carrito',
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      }
+    });
   }
 }

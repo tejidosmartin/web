@@ -38,8 +38,6 @@ export class ListComponent implements OnInit {
       this._activedRoute.queryParams
         .pipe(
           switchMap((params) => {
-            console.log(params['filter']);
-
             return this._productoService.getFilterByFamily(params['filter']);
           })
         )
@@ -47,7 +45,6 @@ export class ListComponent implements OnInit {
     }
     this._productoService.get("list").subscribe((productos) => {
       this.productos = productos;
-      console.log(this.productos);
     });
   }
 }

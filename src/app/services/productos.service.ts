@@ -46,8 +46,11 @@ export class ProductosService {
     );
   }
 
-  removeArticleToCart(id: string){
-    return this._http.delete<Producto>(`${this._urlBase}/controller-remove-article.php?id=${id}`)
+  removeArticleToCart(producto: Producto) {
+    return this._http.post<Producto>(
+      `${this._urlBase}/controller-remove-article.php`,
+      JSON.stringify(producto)
+    );
   }
 
   /* addArticleToCart(producto: Producto) {

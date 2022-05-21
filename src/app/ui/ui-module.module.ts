@@ -16,6 +16,7 @@ import { EnviosComponent } from './pages/envios/envios.component';
 import { DevolucionesComponent } from './pages/devoluciones/devoluciones.component';
 import { NewsletterComponent } from './components/newsletter/newsletter.component';
 import { CardHomeComponent } from './components/card-home/card-home.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,6 @@ import { CardHomeComponent } from './components/card-home/card-home.component';
     NewsletterComponent,
     CardHomeComponent,
   ],
-  imports: [CommonModule, MaterialModule, UiRoutingModule, SharedModule],
+  imports: [CommonModule, MaterialModule, UiRoutingModule, SharedModule, FormsModule, ReactiveFormsModule],
 })
 export class UiModuleModule {}
