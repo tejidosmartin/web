@@ -15,7 +15,7 @@
                     <div class="content">
                         <h3>{{producto.nombre}}</h3>
                         <h4>{{producto.precio | currency:"EUR":"symbol-narrow":"1.0-4"}}</h4>
-                        <p class="unit">Cantidad: <input [value]="producto.cantidad"></p>
+                        <p class="unit">Cantidad: <input [value]="producto.cantidad" disabled></p>
 
                         <p class="btn-area" (click)="eliminar(producto)">
                             <i class="fa fa-trash"></i>
@@ -26,8 +26,6 @@
 
 
                 <div class="right-bar">
-                    <p><span>Tax (%5)</span><span>$10</span></p>
-                    <hr>
                     <p><span>Total</span><span>{{total | currency:"EUR":"symbol-narrow":"1.0-4"}}</span></p>
 
                     <a style="cursor: pointer;" (click)="makePayment(total)"><i class="fa fa-shopping-cart"></i>Terminar y comprar</a>

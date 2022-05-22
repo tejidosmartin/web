@@ -130,7 +130,7 @@ export class CarritoComponent implements OnInit {
       },
     });
     paymentHandler.open({
-      name: 'ItSolutionStuff.com',
+      name: 'tejidosmartin.com',
       description: '3 widgets',
       amount: amount * 100,
     });
