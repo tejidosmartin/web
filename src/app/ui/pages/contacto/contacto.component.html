@@ -61,39 +61,39 @@
                                 <div id="form-message-success" class="mb-4">
                                     Your message was sent, thank you!
                                 </div>
-                                <form method="POST" id="contactForm" name="contactForm" class="contactForm">
+                                <form [formGroup]="formContact" id="contactForm" name="contactForm" class="contactForm" (ngSubmit)="submit()">
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label class="label" for="name">Nombre completo</label>
                                                 <input type="text" class="form-control" name="name" id="name"
-                                                    placeholder="Name">
+                                                    placeholder="Name" formControlName="name">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label class="label" for="email">Correo</label>
                                                 <input type="email" class="form-control" name="email" id="email"
-                                                    placeholder="Email">
+                                                    placeholder="Email" formControlName="email">
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label class="label" for="subject">Subject</label>
                                                 <input type="text" class="form-control" name="subject" id="subject"
-                                                    placeholder="Subject">
+                                                    placeholder="Subject" formControlName="subject">
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label class="label" for="#">Mensaje</label>
+                                                <label class="label" for="mesagge">Mensaje</label>
                                                 <textarea name="message" class="form-control" id="message" cols="30"
-                                                    rows="4" placeholder="Message"></textarea>
+                                                    rows="4" placeholder="Message" formControlName="mesagge"></textarea>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <input type="submit" value="Enviar Mensaje" class="btn btn-primary">
+                                                <input type="submit" value="Enviar Mensaje" class="btn btn-primary" [disabled]="formContact.invalid">
                                                 <div class="submitting"></div>
                                             </div>
                                         </div>
