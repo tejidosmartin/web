@@ -4,6 +4,7 @@ import { switchMap } from 'rxjs';
 import { ProductosService } from 'src/app/services/productos.service';
 import { Producto } from '../../interfaces/producto.interface';
 import Swal from 'sweetalert2';
+import { UpdateCartService } from 'src/app/services/update-cart.service';
 
 @Component({
   selector: 'app-producto',
@@ -29,7 +30,8 @@ export class ProductoComponent implements OnInit {
   constructor(
     private _productoService: ProductosService,
     private _activedRoute: ActivatedRoute,
-    private _router: Router
+    private _router: Router,
+    private _updateCartService: UpdateCartService
   ) {}
 
   ngOnInit(): void {
@@ -45,7 +47,10 @@ export class ProductoComponent implements OnInit {
 
   addToCarrito(producto: Producto) {
     this._productoService.addArticleToCart(producto).subscribe((datos: any) => {
-      if (datos['resultado'] === 'OK') {
+
+      this._updateCartService.setUpdatedCart$(producto);
+
+      if (datos['ok'] === 'true') {
         Swal.fire({
           position: 'center',
           icon: 'success',

@@ -26,15 +26,11 @@
 
 
                 <div class="right-bar">
-                    <p><span>Subtotal</span><span>$10</span></p>
-                    <hr>
                     <p><span>Tax (%5)</span><span>$10</span></p>
                     <hr>
-                    <p><span>Shipping</span><span>$10</span></p>
-                    <hr>
-                    <p><span>Total</span><span>$10</span></p>
+                    <p><span>Total</span><span>{{total | currency:"EUR":"symbol-narrow":"1.0-4"}}</span></p>
 
-                    <a href=""><i class="fa fa-shopping-cart"></i>Terminar y comprar</a>
+                    <a style="cursor: pointer;" (click)="makePayment(total)"><i class="fa fa-shopping-cart"></i>Terminar y comprar</a>
                 </div>
             </div>
         </div>

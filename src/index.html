@@ -33,12 +33,14 @@
   <app-root></app-root>
 
   <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-steps/1.1.0/jquery.steps.min.js"></script>
   <script src="assets/js/popper.min.js"></script>
   <script src="assets/js/bootstrap.min.js"></script>
   <!-- <script src="node_modules/keen-slider/keen-slider.js"></script> -->
 
   <script>
     $(document).ready(function () {
+      $("#finishBuy").modal()
       // navigation starts here
       $("#toggle").click(function () {
         $(this).toggleClass('on');
@@ -64,6 +66,9 @@
     })
 
   </script>
+
+  
+
 </body>
 
 </html>

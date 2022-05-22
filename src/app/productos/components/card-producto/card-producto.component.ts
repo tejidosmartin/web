@@ -21,7 +21,6 @@ export class CardProductoComponent implements OnInit {
 
   addToCarrito(producto: Producto) {
     this._productoService.addArticleToCart(producto).subscribe((datos: any) => {
-      console.log(datos);
 
       this._updateCartService.setUpdatedCart$(producto);
 

@@ -10,6 +10,7 @@ import { ProductosService } from 'src/app/services/productos.service';
 import { UpdateCartService } from 'src/app/services/update-cart.service';
 import { ConfirmComponent } from 'src/app/shared/confirm/confirm.component';
 import Swal from 'sweetalert2';
+import { UpdateService } from '../../services/update.service';
 
 @Component({
   selector: 'app-carrito',
@@ -20,6 +21,11 @@ export class CarritoComponent implements OnInit {
   productos: Producto[] = [];
   errorMsg!: string;
   titulo: string = 'Carrito';
+  total: number = 0;
+
+  paymentHandler: any = null;
+  stripeAPIKey: any =
+    'pk_test_51L2FcxLGmgrGzDkTYu1WZDVN7NPtcUtFhQ6QjRpzJpONpjO0LbxzBHO8IGW8atuxOAKm4PlmJIhLwMikvmA5E8At00cj1yaQCo';
 
   public totalItem: number = 0;
 
@@ -33,7 +39,8 @@ export class CarritoComponent implements OnInit {
     private _productoService: ProductosService,
     private _location: Location,
     private _dialog: MatDialog,
-    private _updateCartService: UpdateCartService
+    private _updateCartService: UpdateCartService,
+    private _update: UpdateService
   ) {}
 
   ngOnInit(): void {
@@ -55,17 +62,19 @@ export class CarritoComponent implements OnInit {
       )
       .subscribe((next) => {
         this.productos = next;
+        this.productos.forEach((object) => {
+          this.total += object.cantidad! * object.precio!;
+        });
       });
 
     this._updateCartService.setUpdatedCart$(this.productos);
+    this.invokeStripe();
   }
 
   eliminar(producto: Producto) {
-
     this._productoService
       .removeArticleToCart(producto)
       .pipe(
-        
         tap(() =>
           this._router
             .navigateByUrl('/refresh', { skipLocationChange: true })
@@ -75,8 +84,6 @@ export class CarritoComponent implements OnInit {
         )
       )
       .subscribe((datos: any) => {
-        console.log(datos);
-        
         if (datos['ok'] === 'true') {
           Swal.fire({
             position: 'center',
@@ -95,6 +102,79 @@ export class CarritoComponent implements OnInit {
           });
         }
       });
-      this._updateCartService.setUpdatedCart$(this.productos)
+    this._updateCartService.setUpdatedCart$(this.productos);
   }
+
+  makePayment(amount: any) {
+    const paymentHandler = (<any>window).StripeCheckout.configure({
+      key: this.stripeAPIKey,
+      locale: 'auto',
+      token: function (stripeToken: any) {
+        if (stripeToken.id) {
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Pago realizado con exito',
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        } else {
+          Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title: 'Ha habido un error a la hora de efectuar su pago',
+            showConfirmButton: false,
+            timer: 2000,
+          });
+        }
+      },
+    });
+    paymentHandler.open({
+      name: 'ItSolutionStuff.com',
+      description: '3 widgets',
+      amount: amount * 100,
+    });
+  }
+
+  invokeStripe() {
+    if (!window.document.getElementById('stripe-script')) {
+      const script = window.document.createElement('script');
+
+      script.id = 'stripe-script';
+      script.type = 'text/javascript';
+      script.src = 'https://checkout.stripe.com/checkout.js';
+      script.onload = () => {
+        this.paymentHandler = (<any>window).StripeCheckout.configure({
+          key: this.stripeAPIKey,
+          locale: 'auto',
+          token: function (stripeToken: any) {
+            if (stripeToken.id) {
+              Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Pago realizado con exito',
+                showConfirmButton: false,
+                timer: 1500,
+              });
+            } else {
+              Swal.fire({
+                position: 'center',
+                icon: 'error',
+                title: 'Ha habido un error a la hora de efectuar su pago',
+                showConfirmButton: false,
+                timer: 2000,
+              });
+            }
+          },
+        });
+      };
+
+      window.document.body.appendChild(script);
+    }
+  }
+
+  /*   finishBuy() {
+    
+    this._router.navigate(['/carrito/finalizar-compra']);
+  } */
 }
